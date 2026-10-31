@@ -1,4 +1,8 @@
-SELECT COUNT(film_id) AS num_films , AVG(length) AS avg_length, MIN(replacement_cost) AS min_cost ,MAX(replacement_cost) AS max_cost
-FROM film
-WHERE description LIKE '%Documentary%'
-AND special_features LIKE '%Commentaries%'
+SELECT category.name AS category ,COUNT(*) AS num_films, AVG(length) AS avg_length
+FROM film, film_category,category
+WHERE film.film_id = film_category.film_id
+AND category.category_id = film_category.category_id
+GROUP BY category.category_id
+HAVING COUNT(*) >= 60
+AND AVG(length) > 110
+ORDER BY avg_length DESC

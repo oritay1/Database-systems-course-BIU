@@ -1,8 +1,15 @@
-SELECT f1.title AS title1, f2.title AS title2, f1.length, f1.rental_rate, f1.replacement_cost, f1.rating
-FROM film AS f1, film AS f2
-WHERE f1.title < f2.title 
-AND f1.length = f2.length
-AND f1.rental_rate = f2.rental_rate
-AND f1.replacement_cost = f2.replacement_cost
-AND f1.rating = f2.rating
-ORDER BY title1
+SELECT  CONCAT(a1.first_name, ' ', a1.last_name) AS actor1,
+        CONCAT(a2.first_name, ' ', a2.last_name) AS actor2,
+        COUNT(f1.actor_id) AS shared_films
+FROM film_actor as f1, film_actor AS f2, actor AS a1, actor AS a2
+
+WHERE f1.film_id = f2.film_id
+AND f1.actor_id < f2.actor_id
+AND f1.actor_id = a1.actor_id
+AND f2.actor_id = a2.actor_id
+
+GROUP BY f1.actor_id, f2.actor_id,
+         a1.first_name, a1.last_name,
+         a2.first_name, a2.last_name
+HAVING COUNT(f1.actor_id) >= 5
+ORDER BY shared_films DESC, actor1, actor2

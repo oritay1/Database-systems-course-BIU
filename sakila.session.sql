@@ -1,5 +1,4 @@
-SELECT DISTINCT first_name
-FROM customer
-WHERE active = 1
-AND first_name LIKE '_A__'
-ORDER BY first_name
+SELECT COUNT(film_id) AS num_films , AVG(length) AS avg_length, MIN(replacement_cost) AS min_cost ,MAX(replacement_cost) AS max_cost
+FROM film
+WHERE description LIKE '%Documentary%'
+AND special_features LIKE '%Commentaries%'

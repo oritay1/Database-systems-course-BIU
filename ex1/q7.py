@@ -31,7 +31,7 @@ if __name__ == '__main__':
                 a1.first_name, a1.last_name,
                 a2.first_name, a2.last_name
         HAVING COUNT(f1.actor_id) >= 5
-        ORDER BY shared_films DESC, actor1, actor2
+        ORDER BY shared_films DESC, actor1, actor2;
     """)
     print(', '.join(str(row) for row in cursor.fetchall()))
 

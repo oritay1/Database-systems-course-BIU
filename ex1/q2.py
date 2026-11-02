@@ -18,7 +18,7 @@ if __name__ == '__main__':
     FROM customer
     WHERE active = 1
     AND first_name LIKE '_A__'
-    ORDER BY first_name
+    ORDER BY first_name;
     """)
     print(', '.join(str(row) for row in cursor.fetchall()))
 

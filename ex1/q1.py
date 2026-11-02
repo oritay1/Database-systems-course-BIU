@@ -20,7 +20,7 @@ if __name__ == '__main__':
     AND length >= 100
     AND length <= 120
     AND rental_rate < 3
-    ORDER BY length DESC, title
+    ORDER BY length DESC, title;
     """)
     print(', '.join(str(row) for row in cursor.fetchall()))
 

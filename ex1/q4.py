@@ -22,7 +22,7 @@ if __name__ == '__main__':
     GROUP BY category.category_id
     HAVING COUNT(*) >= 60
     AND AVG(length) > 110
-    ORDER BY avg_length DESC
+    ORDER BY avg_length DESC;
     """)
     print(', '.join(str(row) for row in cursor.fetchall()))
 

@@ -21,7 +21,7 @@ if __name__ == '__main__':
     AND f1.rental_rate = f2.rental_rate
     AND f1.replacement_cost = f2.replacement_cost
     AND f1.rating = f2.rating
-    ORDER BY title1
+    ORDER BY title1;
     """)
     print(', '.join(str(row) for row in cursor.fetchall()))
 

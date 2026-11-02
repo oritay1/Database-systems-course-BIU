@@ -21,7 +21,7 @@ if __name__ == '__main__':
     GROUP BY customer.customer_id, customer.first_name,customer.last_name
     HAVING COUNT(*) >= 35
     AND SUM(payment.amount) >= 175
-    ORDER BY num_payments DESC, customer.customer_id ASC
+    ORDER BY num_payments DESC, customer.customer_id ASC;
     """)
     print(', '.join(str(row) for row in cursor.fetchall()))
 
